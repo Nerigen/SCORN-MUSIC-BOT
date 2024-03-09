@@ -15,7 +15,7 @@ module.exports = {
     try {
 
       const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: `⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: `⚠️Музыка не проигрывается! | ⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
 
       let position = getSeconds(interaction.options.getString("position"))
       if(isNaN(position)) return interaction.reply({ content: `usage : 2:40`, ephemeral: true }).catch(e => { })
