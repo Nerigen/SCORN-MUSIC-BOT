@@ -10,7 +10,7 @@ module.exports = {
     try {
       const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
       const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ Музыка не проигрывается!! | ⚠️ No music playing!!', ephemeral: true }).catch(e => { })
   
       let button = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
@@ -45,24 +45,24 @@ module.exports = {
           if (button.user.id !== interaction.user.id) return
           const queue1 = client.player.getQueue(interaction.guild.id);
           if (!queue1 || !queue1.playing) {
-            await interaction?.editReply({ content: '⚠️ No music playing!!', ephemeral: true }).catch(e => { })
+            await interaction?.editReply({ content: '⚠️ Музыка не проигрывается!! | ⚠️ No music playing!!', ephemeral: true }).catch(e => { })
             await button?.deferUpdate().catch(e => {})
           }
           switch (button.customId) {
             case 'queue':
               const success = queue.setRepeatMode(2);
-              interaction?.editReply({ content: `✅ Looping Queue!!` }).catch(e => { })
+              interaction?.editReply({ content: `✅ Зацикливание очереди!! | ✅ Looping Queue!!` }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
             case 'nowplaying':
               const success2 = queue.setRepeatMode(1);
-              interaction?.editReply({ content: `✅ Looping activated!!` }).catch(e => { })
+              interaction?.editReply({ content: `✅ Зацикливание активировано!! | ✅ Looping activated!!` }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
             case 'close':
               if (queue.repeatMode === 0) {
                 await button?.deferUpdate().catch(e => {})
-                return interaction?.editReply({ content: '⚠️ Looping already Off!!', ephemeral: true }).catch(e => { })
+                return interaction?.editReply({ content: '⚠️ Зацикливание отключено!! | ⚠️ Looping already Off!!', ephemeral: true }).catch(e => { })
               }
               const success4 = queue.setRepeatMode(0);
               interaction?.editReply({ content: '▶️ Looping off' }).catch(e => { })
@@ -92,18 +92,3 @@ module.exports = {
   }
   }
 }
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
