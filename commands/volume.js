@@ -17,7 +17,7 @@ module.exports = {
     try {
       const queue = client.player.getQueue(interaction.guild.id);
       if (!queue || !queue.playing) {
-        return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true });
+        return interaction.reply({ content: '⚠️Музыка не проигрывается! | ⚠️ No music playing!!', ephemeral: true });
       }
 
       const vol = parseInt(interaction.options.getInteger('volume'));
@@ -54,7 +54,7 @@ module.exports = {
 
         return interaction.reply({ embeds: [embed] });
       } else {
-        return interaction.reply({ content: '❌ Something went wrong while changing the volume.', ephemeral: true });
+        return interaction.reply({ content: '❌Ошибка в процессе изменения громкости! | ❌ Something went wrong while changing the volume.', ephemeral: true });
       }
     } catch (e) {
       console.error(e);
