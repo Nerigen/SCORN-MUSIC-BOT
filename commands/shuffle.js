@@ -10,7 +10,7 @@ module.exports = {
     try {
 
         const queue = client.player.getQueue(interaction.guild.id);
-        if (!queue || !queue.playing) return interaction.reply({ content: `⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
+        if (!queue || !queue.playing) return interaction.reply({ content: `⚠️Музыка не проигрывается! | ⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
         try {
           queue.shuffle(interaction)
         return interaction.reply({ content: `<@${interaction.user.id}>, Shuffled the songs for You!!` }).catch(e => { })
