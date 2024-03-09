@@ -1,19 +1,3 @@
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
-
 const db = require("../mongoDB");
 const { EmbedBuilder } = require('discord.js');
 
@@ -26,7 +10,7 @@ module.exports = {
     try {
       const queue = client?.player?.getQueue(interaction?.guild?.id);
       if (!queue || !queue?.playing) {
-        return interaction?.reply({ content: '⚠️ No music playing!!', ephemeral: true });
+        return interaction?.reply({ content: '⚠️ Музыка не проигрывается!! | ⚠️ No music playing!!', ephemeral: true });
       }
       
       queue?.toggleAutoplay();
@@ -34,7 +18,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#2f58fe')
         .setTitle('Your Music, Your Call!!')
-        .setDescription(queue?.autoplay ? '**✅ Autoplay ON**' : '**❌ Autoplay OFF**')
+        .setDescription(queue?.autoplay ? '**✅ Автопроигрывание включено | ✅ Autoplay ON**' : '**❌ Автопроигрывание отключено |❌ Autoplay OFF**')
         
       
       interaction?.reply({ embeds: [embed] });
@@ -43,19 +27,3 @@ module.exports = {
     }
   },
 };
-
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
