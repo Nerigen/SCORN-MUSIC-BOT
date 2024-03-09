@@ -83,7 +83,7 @@ module.exports = {
                   interaction
                 })
               } catch (e) {
-                await interaction.editReply({ content: `❌ No results found!!`, ephemeral: true }).catch(e => { })
+                await interaction.editReply({ content: `❌Ничего не найдено! | ❌ No results found!!`, ephemeral: true }).catch(e => { })
               }
 
               playlist[i]?.playlist?.filter(p => p.name === playlistw).map(async p => {
@@ -121,13 +121,13 @@ module.exports = {
       if (stp === "normal") {
   const name = interaction.options.getString('name');
   if (!name) {
-    return interaction.reply({ content: '▶️ Give Text or link', ephemeral: true }).catch(e => {});
+    return interaction.reply({ content: '▶️Введите название или ссылку | ▶️ Give Text or link', ephemeral: true }).catch(e => {});
   }
 
   const embed = new EmbedBuilder()
     .setColor('#3498db')
     .setColor('#FF0000')
-    .setDescription('**🎸 Get ready for a musical journey!**');
+    .setDescription('**🎸 Get ready for a music!**');
 
   await interaction.reply({ embeds: [embed] }).catch(e => {});
 
@@ -141,7 +141,7 @@ module.exports = {
     const errorEmbed = new EmbedBuilder()
       .setColor('#e74c3c')
       .setColor('#FF0000')
-      .setDescription('❌ No results found!!');
+      .setDescription('❌Ничего не найдено! | ❌ No results found!!');
 
     await interaction.editReply({ embeds: [errorEmbed], ephemeral: true }).catch(e => {});
   }
