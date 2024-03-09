@@ -10,7 +10,7 @@ module.exports = {
 
       const queue = client.player.getQueue(interaction.guild.id);
 
-      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️Музыка не проигрывается! | ⚠️ No music playing!!', ephemeral: true }).catch(e => { })
 
       let music_percent = queue.duration / 100;
       let music_percent2 = queue.currentTime / music_percent;
