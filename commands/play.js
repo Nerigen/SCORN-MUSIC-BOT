@@ -19,7 +19,7 @@ module.exports = {
     try {
 
       const name = interaction.options.getString('name')
-      if (!name) return interaction.reply({ content: `❌ Enter a valid song name.`, ephemeral: true }).catch(e => { });
+      if (!name) return interaction.reply({ content: `❌ Введите корректное название песни | ❌ Enter a valid song name.`, ephemeral: true }).catch(e => { });
       let res;
       try {
         res = await client.player.search(name, {
@@ -28,10 +28,10 @@ module.exports = {
           interaction
         });
       } catch (e) {
-        return interaction.editReply({ content: `❌ No results` }).catch(e => { });
+        return interaction.editReply({ content: `❌ Ничего не найдено | ❌ No results` }).catch(e => { });
       }
 
-      if (!res || !res.length || !res.length > 1) return interaction.reply({ content: `❌ No results`, ephemeral: true }).catch(e => { });
+      if (!res || !res.length || !res.length > 1) return interaction.reply({ content: `❌ Ничего не найдено | ❌ No results`, ephemeral: true }).catch(e => { });
 
       const embed = new EmbedBuilder();
       embed.setColor(client.config.embedColor);
@@ -67,7 +67,7 @@ module.exports = {
           .setCustomId('cancel')
       );
 
-      embed.setDescription(`${maxTracks.map((song, i) => `**${i + 1}**. [${song.name}](${song.url}) | \`${song.uploader.name}\``).join('\n')}\n\n✨Choose a song from below!!`);
+      embed.setDescription(`${maxTracks.map((song, i) => `**${i + 1}**. [${song.name}](${song.url}) | \`${song.uploader.name}\``).join('\n')}\n\n✨ Выберите трек из списка |✨Choose a song from below!!`);
 
       let code;
       if (buttons1 && buttons2) {
