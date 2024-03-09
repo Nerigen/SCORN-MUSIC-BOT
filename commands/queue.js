@@ -10,8 +10,8 @@ module.exports = {
     try {
 
      const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true }).catch(e => { })
-      if (!queue.songs[0]) return interaction.reply({ content: '⚠️ Queue is empty!!', ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️Музыка не проигрывается! | ⚠️ No music playing!!', ephemeral: true }).catch(e => { })
+      if (!queue.songs[0]) return interaction.reply({ content: '⚠️Очередь пуста! | ⚠️ Queue is empty!!', ephemeral: true }).catch(e => { })
 
       const trackl = []
       queue.songs.map(async (track, i) => {
@@ -52,7 +52,7 @@ module.exports = {
       const generateEmbed = async (start) => {
         let sayı = page === 1 ? 1 : page * kaçtane - kaçtane + 1
         const current = trackl.slice(start, start + kaçtane)
-        if (!current || !current?.length > 0) return interaction.reply({ content: '⚠️ Queue is empty!!', ephemeral: true }).catch(e => { })
+        if (!current || !current?.length > 0) return interaction.reply({ content: '⚠️Очередь пуста! | ⚠️ Queue is empty!!', ephemeral: true }).catch(e => { })
         return new EmbedBuilder()
           .setTitle(`${interaction.guild.name}  Queue`)
           .setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
@@ -143,18 +143,4 @@ module.exports = {
   }
   }
 }
-/*
 
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
