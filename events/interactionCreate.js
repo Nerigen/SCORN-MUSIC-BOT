@@ -1,18 +1,3 @@
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
 const config = require("../config.js");
 const { EmbedBuilder, InteractionType, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 const db = require("../mongoDB");
@@ -82,11 +67,11 @@ return interaction?.reply({ content: "Rate Limited.", ephemeral: true })
             }
             }
             if (props && props.voiceChannel) {
-            if (!interaction?.member?.voice?.channelId) return interaction?.reply({ content: `🔴 Join Voice channel First!!`, ephemeral: true }).catch(e => { })
+            if (!interaction?.member?.voice?.channelId) return interaction?.reply({ content: `Подключитесь к голосовому каналу! |🔴 Join Voice channel First!!`, ephemeral: true }).catch(e => { })
             const guild_me = interaction?.guild?.members?.cache?.get(client?.user?.id);
             if (guild_me?.voice?.channelId) {
             if (guild_me?.voice?.channelId !== interaction?.member?.voice?.channelId) {
-            return interaction?.reply({ content: `🔴 Must be in same VC!!`, ephemeral: true }).catch(e => { })
+            return interaction?.reply({ content: `Подключитесь в канал со мной! |🔴 Must be in same VC!!`, ephemeral: true }).catch(e => { })
             }
             }
             }
@@ -96,7 +81,7 @@ return interaction?.reply({ content: "Rate Limited.", ephemeral: true })
             return interaction?.reply({ content: `▶️ Missing Permissions: **${props?.permissions?.replace("0x0000000000000020", "MANAGE GUILD")?.replace("0x0000000000000800", "SEND MESSAGES") || "SEND MESSAGES"}**`, ephemeral: true });
             }
             } catch (e) {
-            return interaction?.reply({ content: `❌ Error...\n\n\`\`\`${e?.message}\`\`\``, ephemeral: true });
+            return interaction?.reply({ content: `Ошибка | ❌ Error...\n\n\`\`\`${e?.message}\`\`\``, ephemeral: true });
             }
             }
             });
@@ -138,19 +123,3 @@ return interaction?.reply({ content: "Rate Limited.", ephemeral: true })
     console.error(e); 
   }
 }
-
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
